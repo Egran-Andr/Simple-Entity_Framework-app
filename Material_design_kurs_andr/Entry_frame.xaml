@@ -1,0 +1,39 @@
+﻿<Page x:Class="Kurs_Andreev.Entry_frame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kurs_Andreev"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Entry_frame">
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+        <DockPanel LastChildFill="True">
+            <Label Content="Добро пожаловать в приложение нашей больницы!" FontSize="25" Width="675" DockPanel.Dock="Left" />
+            <Button Name="GotoReg" Content="Регистрация" Width="120" DockPanel.Dock="Right" Click="GotoReg_Click"/>
+        </DockPanel>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <UniformGrid Height="91" Width="556" RenderTransformOrigin="0.5,0.5">
+                <UniformGrid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </UniformGrid.RenderTransform>
+                <Label Content="Логин:"   FontSize="30"/>
+                <TextBox x:Name="Login" DockPanel.Dock="Left" Text="TextBox" TextWrapping="Wrap"  FontSize="20" Margin="0,0,0,-36"/>
+            </UniformGrid>
+            <UniformGrid Height="98" Width="556">
+                <Label Content="Пароль:" FontSize="30"/>
+                <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  />
+            </UniformGrid>
+            <Canvas Height="68" Width="799">
+                <Button Name="entry" Content="Вход" Width="168" Height="50" Canvas.Left="316" FontSize="22" Click="entry_Click"/>
+            </Canvas>
+
+        </StackPanel>
+
+    </StackPanel>
+</Page>
