@@ -41,6 +41,7 @@ namespace Kurs_Andreev
         {
             if (Login.Text != "" & Password.Password != "" & PasswordRepeat.Password != "")//Все поля заполнены пользователем
             {
+
                 if ((Password.Password.ToString()) != (PasswordRepeat.Password.ToString()))//Введеный пароль и подтвержденный пароль не совпадают
                 {
                     MessageBox.Show("Пароли не совпадают. Проверьте правильность ввода");

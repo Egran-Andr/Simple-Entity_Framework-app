@@ -72,5 +72,10 @@ namespace Kurs_Andreev
                 MessageBox.Show("Все поля обязательны к заполнению");
             }
         }
+
+        private void Recordadd_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Record_registration.xaml", UriKind.Relative));
+        }
     }
 }

@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kurs_Andreev"
       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Record_registration">
     <Grid Background="White">
         <StackPanel Margin="0,0,0,-42">
             <StackPanel HorizontalAlignment="Stretch">
-                <Button x:Name="BackButton" HorizontalAlignment="Left" Content="Назад" Width="143" Height="34"  />
+                <Button x:Name="BackButton" HorizontalAlignment="Left" Content="Назад" Width="143" Height="34" Click="BackButton_Click"  />
             </StackPanel>
             <StackPanel HorizontalAlignment="Stretch" Height="404" Width="794" >
                 <UniformGrid Height="91" Width="556" RenderTransformOrigin="0.5,0.5">
@@ -26,13 +27,10 @@
                     <ComboBox Name="Workername"></ComboBox>
                 </UniformGrid>
                 <UniformGrid Height="98" Width="556">
-                    <Label Content="Пароль:" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <DatePicker Name="calendar" materialDesign:HintAssist.Hint="Выберите дату" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="18"  />
+                    <materialDesign:TimePicker  x:Name="PresetTimePicker"  materialDesign:HintAssist.Hint="Выберите время"  Is24Hours="True" SelectedTimeChanged="PresetTimePicker_SelectedTimeChanged" Height="37" Margin="55,0,10,0" FontSize="20" />
                 </UniformGrid>
-                <UniformGrid Height="98" Width="556">
-                    <Calendar Margin="0,-59,0,-31"></Calendar>
-                </UniformGrid>
-                <Canvas  Height="102" Width="800" RenderTransformOrigin="0.5,0.5">
+                <Canvas  Height="143" Width="800" RenderTransformOrigin="0.5,0.5">
                     <Canvas.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -41,7 +39,8 @@
                             <TranslateTransform X="-0.686"/>
                         </TransformGroup>
                     </Canvas.RenderTransform>
-                    <Button  x:Name="RegistrationAcsess" Content="Регистрация" Width="168" Height="50" Canvas.Left="316" FontSize="22"  Canvas.Top="50"/>
+                    <Button  x:Name="GetWorkerTicket" Content="Запись" Width="168" Height="50" Canvas.Left="315" FontSize="22"  Canvas.Top="94" Click="GetWorkerTicket_Click"/>
+                    <TextBox x:Name="OMC" materialDesign:HintAssist.Hint="Введите номер вашего полиса OMC"  MaxLength="16" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20" Height="61" Width="403" Canvas.Left="175" Canvas.Top="8" />
                 </Canvas>
             </StackPanel>
         </StackPanel>

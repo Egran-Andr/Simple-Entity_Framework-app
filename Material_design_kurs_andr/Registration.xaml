@@ -14,7 +14,7 @@
                 <Button x:Name="BackButton" HorizontalAlignment="Left" Content="Назад" Width="143" Height="34" Click="BackButton_Click" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-                <UniformGrid Height="91" Width="556" RenderTransformOrigin="0.5,0.5">
+                <UniformGrid Height="127" Width="581" RenderTransformOrigin="0.5,0.5">
                     <UniformGrid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="1"/>
@@ -24,15 +24,15 @@
                         </TransformGroup>
                     </UniformGrid.RenderTransform>
                     <Label Content="Логин:"   FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <TextBox x:Name="Login" DockPanel.Dock="Left" Text="TextBox" TextWrapping="Wrap"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <TextBox x:Name="Login" DockPanel.Dock="Left" TextWrapping="Wrap"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand"/>
                 </UniformGrid>
-                <UniformGrid Height="98" Width="556">
+                <UniformGrid Height="120" Width="598">
                     <Label Content="Пароль:" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand" />
                 </UniformGrid>
-                <UniformGrid Height="98" Width="556">
+                <UniformGrid Height="105" Width="626">
                     <Label Content="Повторите пароль:" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <PasswordBox x:Name="PasswordRepeat" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <PasswordBox x:Name="PasswordRepeat" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand" />
                 </UniformGrid>
                 <Canvas  Height="68" Width="799" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Button  x:Name="RegistrationAcsess" Content="Регистрация" Width="168" Height="50" Canvas.Left="316" FontSize="22"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="RegistrationAcsess_Click"/>
