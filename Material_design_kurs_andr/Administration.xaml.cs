@@ -51,21 +51,28 @@ namespace Kurs_Andreev
         private void AccountList_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             var db = HospitalkursContext.GetContext();
-            if (e.Key == Key.Delete)
+            try
             {
-                MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                if (e.Key == Key.Delete)
                 {
-                    List<Object> a = AccountList.SelectedItems.Cast<Object>().ToList();
-                    a.ForEach(n => db.Remove(n));
-                    db.SaveChanges();
+                    MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        List<Object> a = AccountList.SelectedItems.Cast<Object>().ToList();
+                        a.ForEach(n => db.Remove(n));
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
-                else
-                {
-                    return;
-                }
-
             }
+            catch (System.InvalidOperationException){
+                MessageBox.Show("Ошибка. Изменения не были сохранены");
+                return;
+            }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Material_design_kurs_andr.Models;
+﻿using Material_design_kurs_andr;
+using Material_design_kurs_andr.Models;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Kurs_Andreev
         public Entry_frame()
         {
             InitializeComponent();
+
         }
         private const string salt = "Password";
         private const int IterationCount = 100000;
@@ -59,9 +61,12 @@ namespace Kurs_Andreev
                     else {
                         List<Workers> worker = db.Workers.Where(c => c.IdWorkers == a[0].IdWorkers).ToList();
                         bool result = array.Any(n => n == worker[0].WorkerPosition);
+                        int id = worker[0].WorkerPosition;
+                        string FIO = login;
+               
                         if (worker[0].WorkerPosition == 11) this.NavigationService.Navigate(new Uri("Administration.xaml", UriKind.Relative));
-                        else if (worker[0].WorkerPosition == 3) MessageBox.Show("Вы главврач!");
-                        else if (result==true) MessageBox.Show("Вы врач!");
+                        else if (worker[0].WorkerPosition == 3) this.NavigationService.Navigate(new DoctorMenupage(id,FIO,a[0].IdWorkers)); 
+                        else if (result==true) this.NavigationService.Navigate(new DoctorMenupage(id, FIO, a[0].IdWorkers));
                         MessageBox.Show("Добро пожаловать"+" "+a[0].Fio);
                     }
                 }

@@ -41,7 +41,6 @@ namespace Kurs_Andreev
             String weekday = curday.DayOfWeek.ToString();
             DateTime dt = (DateTime)PresetTimePicker.SelectedTime;
             TimeSpan st = dt.TimeOfDay;
-            MessageBox.Show(curday.ToString() + weekday + dt.ToString() + st.ToString());
             Workername.SelectedItem = null;
             Workername.ItemsSource = db.WorkersScedule.Where(x => x.Starttime < st && x.Endtime > st && x.Days.Contains(weekday)).Select(x => x.Fio).ToList();
         }
