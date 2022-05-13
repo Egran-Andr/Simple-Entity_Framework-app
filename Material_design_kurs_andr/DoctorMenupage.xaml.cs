@@ -40,10 +40,6 @@ namespace Material_design_kurs_andr
             this.NavigationService.Navigate(new Uri("Entry_frame.xaml", UriKind.Relative));//Переход на страницу входа
         }
 
-        private void RegistrationAcsess_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(Roleid.ToString() + " " + Workerfio+" "+Workerid.ToString());
-        }
 
         private void Doctor_assigments_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +53,7 @@ namespace Material_design_kurs_andr
 
         private void Worker_add_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new WorkerAdd(Roleid, Workerfio, Workerid));
         }
     }
 }
