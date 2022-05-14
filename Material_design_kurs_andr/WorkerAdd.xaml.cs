@@ -41,7 +41,6 @@ namespace Material_design_kurs_andr
             var db = HospitalkursContext.GetContext();
             Spesiality.ItemsSource = db.Positions.Select(n => n.PositionName).ToList();
             Spesiality.SelectedIndex = 0;
-
         }
 
         private void ToMenuPage_Click(object sender, RoutedEventArgs e)
@@ -88,7 +87,7 @@ namespace Material_design_kurs_andr
                 {
                     name = workerfio[0];
                     surname = workerfio[1];
-                    secondname = workerfio[3];
+                    secondname = workerfio[2];
                 }
                 else
                 {

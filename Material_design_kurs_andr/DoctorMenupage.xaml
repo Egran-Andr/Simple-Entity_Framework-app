@@ -20,13 +20,13 @@
                     <Button x:Name="Doctor_assigments" Content="Ваши записи" FontSize="20" Height="50" Click="Doctor_assigments_Click" Cursor="Hand"></Button>
                 </UniformGrid>
                 <UniformGrid>
-                    <Button x:Name="New_patient" Content="Регистрация пациента" FontSize="20" Height="49"></Button>
+                    <Button x:Name="New_patient" Content="Регистрация пациента" FontSize="20" Height="49" Cursor="Hand" Click="New_patient_Click"></Button>
                 </UniformGrid>
                 <UniformGrid>
-                    <Button x:Name="Procedure_add" Content="Запись на процедуру" FontSize="20" Height="46"></Button>
+                    <Button x:Name="Procedure_add" Content="Запись на платную процедуру" FontSize="20" Height="46" Cursor="Hand" Click="Procedure_add_Click"></Button>
                 </UniformGrid>
                 <UniformGrid>
-                    <Button x:Name="Patient_visit" Content="Список пациентов" FontSize="20" Height="46"></Button>
+                    <Button x:Name="Patient_visit" Content="Список пациентов" FontSize="20" Height="46" Click="Patient_visit_Click" Cursor="Hand"></Button>
                 </UniformGrid>
                 <UniformGrid>
                     <Button x:Name="Worker_department" Content="Список сотрудников" FontSize="20" Height="46" Background="PaleTurquoise" Cursor="Hand" Click="Worker_department_Click"></Button>

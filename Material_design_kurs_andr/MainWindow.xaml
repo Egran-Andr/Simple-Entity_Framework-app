@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Material_design_kurs_andr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="473" Width="800"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -15,6 +15,10 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <Frame Name="MainFrame" Margin="0,0,-8,-3" NavigationUIVisibility="Hidden" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="687*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Name="MainFrame" Margin="0,0,-8,-3" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

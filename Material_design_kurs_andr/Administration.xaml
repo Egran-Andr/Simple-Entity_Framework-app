@@ -13,7 +13,7 @@
             <Button Name="AdministrationExit" Content="Выход" Width="120" DockPanel.Dock="Right" Click="GotoEntry_Click"/>
         </DockPanel>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <DataGrid x:Name="AccountList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewKeyDown="AccountList_PreviewKeyDown"/>
+            <DataGrid x:Name="AccountList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewKeyDown="AccountList_PreviewKeyDown" SelectionMode="Single" />
             <Canvas Height="68" Width="799">
                 <Button Name="SaveChanges" Content="Сохранить изменения" Width="253" Height="50" Canvas.Left="280" FontSize="20" Canvas.Top="18" Click="SaveChanges_Click" />
             </Canvas>

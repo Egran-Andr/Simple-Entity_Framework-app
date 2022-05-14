@@ -13,7 +13,7 @@
             <Button Name="Gotomenu" Content="Назад" Width="120" DockPanel.Dock="Right" Click="GotoEntry_Click"/>
         </DockPanel>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <DataGrid x:Name="DepartmentList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="200"/>
+            <DataGrid x:Name="DepartmentList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="200" SelectionMode="Single"/>
             <Canvas Height="157" Width="784">
                 <ComboBox Name="Department" Text="Отделение" Canvas.Left="46" Canvas.Top="46" Height="42" Width="211" SelectionChanged="Department_SelectionChanged"></ComboBox>
                 <ComboBox Name="Worker" Text="Сотрудник" Canvas.Left="308" Canvas.Top="26" Width="197" Height="62" SelectionChanged="Worker_SelectionChanged"></ComboBox>

@@ -144,7 +144,6 @@ namespace Material_design_kurs_andr
         {
             Worker1.IsReadOnly = true;
             Worker1.IsEnabled = false;
-            Worker1.Background = Brushes.Gray;
         }
         private void Isdayoff_Checked(object sender, RoutedEventArgs e)
         {

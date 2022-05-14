@@ -55,5 +55,20 @@ namespace Material_design_kurs_andr
         {
             this.NavigationService.Navigate(new WorkerAdd(Roleid, Workerfio, Workerid));
         }
+
+        private void New_patient_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient_add(Roleid, Workerfio, Workerid));
+        }
+
+        private void Patient_visit_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient_list(Roleid, Workerfio, Workerid));
+        }
+
+        private void Procedure_add_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new PaidservicesAdd(Roleid, Workerfio, Workerid));
+        }
     }
 }
