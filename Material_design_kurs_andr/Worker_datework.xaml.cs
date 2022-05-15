@@ -25,6 +25,7 @@ namespace Material_design_kurs_andr
         public int Workerid;
         private int weekday;
         private bool Iswork;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Worker_datework(int id, string fio, int workerid)
         {
             InitializeComponent();
@@ -36,7 +37,6 @@ namespace Material_design_kurs_andr
             rectangle1.Visibility = Visibility.Collapsed;
             elipse2.Visibility = Visibility.Collapsed;
             rectangle2.Visibility = Visibility.Visible;
-            var db = HospitalkursContext.GetContext();
             Worker.ItemsSource = db.FioId.Select(n => n.Fio).ToList();
             Worker1.ItemsSource=db.FioId.Select(n => n.Fio).ToList();
         }
@@ -71,7 +71,6 @@ namespace Material_design_kurs_andr
         {
             if (Worker.SelectedItem != null && calendarbegin.SelectedDate != null && TimeDayBegin.SelectedTime != null && TimeDayend.SelectedTime != null)
             {
-                var db = HospitalkursContext.GetContext();
                 var begindate = calendarbegin.SelectedDate.Value.Date;
                 var timebegin = TimeDayBegin.SelectedTime.Value.TimeOfDay;
                 var timeend = TimeDayend.SelectedTime.Value.TimeOfDay;
@@ -157,7 +156,6 @@ namespace Material_design_kurs_andr
 
         private void Holidayadd_Click(object sender, RoutedEventArgs e)
         {
-            var db = HospitalkursContext.GetContext();
             List<FioId> b = db.FioId.Where(c => c.Fio == Worker1.Text.ToString()).ToList();
             int idcounter = db.Holidays.OrderByDescending(p => p.Idholidays).First().Idholidays +1;
             Holidays newholiday= new Holidays();

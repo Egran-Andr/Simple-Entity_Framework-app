@@ -24,13 +24,13 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string WorkerFio;
         public int Workerid;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Doctor_apointments(int id, string fio, int workerid)
         {
             InitializeComponent();
             WorkerFio = fio;
             Workerid = workerid;
             Roleid = id;
-            var db = HospitalkursContext.GetContext();
             RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord==workerid).ToList();
             RecordList.IsReadOnly = true;
         }
@@ -45,7 +45,6 @@ namespace Material_design_kurs_andr
 
         private void GetWorkerTicket_Click(object sender, RoutedEventArgs e)
         {
-            var db = HospitalkursContext.GetContext();
             DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);
             if ( PresetTimePicker.SelectedTime != null && OMC.Text != null)
             {
@@ -95,7 +94,6 @@ namespace Material_design_kurs_andr
 
         private void RecordList_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-                var db = HospitalkursContext.GetContext();
                 try
                 {
                     if (e.Key == Key.Delete)
@@ -106,6 +104,7 @@ namespace Material_design_kurs_andr
                             List<Object> a = RecordList.SelectedItems.Cast<Object>().ToList();
                             a.ForEach(n => db.Remove(n));
                             db.SaveChanges();
+                            RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord == Workerid).ToList();
                         }
                         else
                         {

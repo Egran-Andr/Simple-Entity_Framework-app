@@ -18,19 +18,18 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string Workerfio;
         public int Workerid;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Patient_list(int id, string fio, int workerid)
         {
             Roleid = id;
             Workerfio = fio;
             Workerid = workerid;
             InitializeComponent();
-            var db = HospitalkursContext.GetContext();
             PatientList.ItemsSource = db.PatientInfo.ToList();
         }
 
         private void PatientList_PreviewKeyDown(object sender, KeyEventArgs e)//нажатие на кнопку delete(удаление строки)
         {
-            var db = HospitalkursContext.GetContext();
 
             if (e.Key == Key.Delete)
             {
@@ -79,7 +78,6 @@ namespace Material_design_kurs_andr
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)//Сохранение изменений в таблице
         {
-            var db = HospitalkursContext.GetContext();
             PatientList.EndInit();
             MessageBoxResult result = MessageBox.Show("Сохранить изменения", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)

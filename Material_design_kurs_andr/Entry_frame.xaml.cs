@@ -14,6 +14,7 @@ namespace Kurs_Andreev
     /// </summary>
     public partial class Entry_frame : Page
     {
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Entry_frame()
         {
             InitializeComponent();
@@ -42,7 +43,6 @@ namespace Kurs_Andreev
         {
             if (Login.Text != "" & Password.Password != "")//Все поля заполнены пользователем
             {
-                var db = HospitalkursContext.GetContext();
                 string login = Login.Text.ToString();
                 string pas = Password.Password.ToString();
                 List<FioId> a = db.FioId.Where(c => c.Fio == login).ToList();

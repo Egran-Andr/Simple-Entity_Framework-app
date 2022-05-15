@@ -27,7 +27,6 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="ToPatientVizit" Content="Список посещений" Width="278" Height="50"  FontSize="20" Cursor="Hand" Click="ToPatientVizit_Click"></Button>
             </DockPanel>
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <DataGrid x:Name="PatientList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewKeyDown="PatientList_PreviewKeyDown" MaxWidth="790" MaxHeight="350" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>

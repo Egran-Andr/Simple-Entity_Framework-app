@@ -20,6 +20,7 @@ namespace Material_design_kurs_andr
         public string Workerfio;
         public int Workerid;
         public string gender;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public static string[] SplitFio(string fio)
         {
             var results = fio.Split(" ", StringSplitOptions.None);
@@ -38,7 +39,6 @@ namespace Material_design_kurs_andr
             InitializeComponent();
             WorkerBirth.DisplayDateEnd = DateTime.Now;
             txtNum.Text = startvalue.ToString();
-            var db = HospitalkursContext.GetContext();
             Spesiality.ItemsSource = db.Positions.Select(n => n.PositionName).ToList();
             Spesiality.SelectedIndex = 0;
         }
@@ -54,7 +54,6 @@ namespace Material_design_kurs_andr
             string surname = null;
             string secondname = null;
             string address, phone, passport;
-            var db = HospitalkursContext.GetContext();
             if (New_worker_Fio.Text != null && WorkerBirth.SelectedDate != null && New_worker_Adress.Text != null && PhoneTextBox.Text != null && WorkerPassport.Text != null)
             {
                 string[] workerfio = SplitFio(New_worker_Fio.Text.ToString());

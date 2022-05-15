@@ -11,7 +11,7 @@ namespace Material_design_kurs_andr.Models
         }
 
         public HospitalkursContext(DbContextOptions<HospitalkursContext> options)
-                    : base(options)
+            : base(options)
         {
         }
         private static HospitalkursContext _context;
@@ -36,6 +36,7 @@ namespace Material_design_kurs_andr.Models
         public virtual DbSet<PatientInfo> PatientInfo { get; set; }
         public virtual DbSet<PatientProcedure> PatientProcedure { get; set; }
         public virtual DbSet<PatientVisit> PatientVisit { get; set; }
+        public virtual DbSet<PatientfioId> PatientfioId { get; set; }
         public virtual DbSet<Positions> Positions { get; set; }
         public virtual DbSet<ProcedureList> ProcedureList { get; set; }
         public virtual DbSet<Records> Records { get; set; }
@@ -53,7 +54,7 @@ namespace Material_design_kurs_andr.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;database=Hospital-kurs;user=root;password=NtcnGfhjkm1234");
+                optionsBuilder.UseMySql("server=localhost;database=hospital-kurs;user=root;password=NtcnGfhjkm1234");
             }
         }
 
@@ -493,6 +494,21 @@ namespace Material_design_kurs_andr.Models
                     .HasConstraintName("Worker");
             });
 
+            modelBuilder.Entity<PatientfioId>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("patientfio_id");
+
+                entity.Property(e => e.Fio)
+                    .HasColumnName("FIO")
+                    .HasColumnType("varchar(137)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.PatientId).HasColumnName("patient_id");
+            });
+
             modelBuilder.Entity<Positions>(entity =>
             {
                 entity.HasKey(e => e.IdPositions)
@@ -571,7 +587,7 @@ namespace Material_design_kurs_andr.Models
 
                 entity.Property(e => e.PatientOmc)
                     .HasColumnName("patient_OMC")
-                    .HasColumnType("varchar(45)")
+                    .HasColumnType("varchar(16)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 
@@ -834,10 +850,8 @@ namespace Material_design_kurs_andr.Models
                 entity.ToView("workers_scedule");
 
                 entity.Property(e => e.Days)
-                    .IsRequired()
                     .HasColumnName("days")
                     .HasColumnType("varchar(57)")
-                    .HasDefaultValueSql("''")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 
@@ -847,7 +861,7 @@ namespace Material_design_kurs_andr.Models
 
                 entity.Property(e => e.Fio)
                     .HasColumnName("FIO")
-                    .HasColumnType("varchar(138)")
+                    .HasColumnType("varchar(137)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 

@@ -17,6 +17,7 @@ namespace Kurs_Andreev
         private const int IterationCount = 100000;
         private const int NumBytesRequested = 256 / 8;
         private const KeyDerivationPrf hMACSHA256 = KeyDerivationPrf.HMACSHA256;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
 
         public static string HashPassword(string password)
         {
@@ -48,7 +49,6 @@ namespace Kurs_Andreev
                 }
                 else
                 {
-                    var db = HospitalkursContext.GetContext();
                     string login = Login.Text.ToString();
                     string pas = Password.Password.ToString();
                     List<FioId> a = db.FioId.Where(c => c.Fio == login).ToList();

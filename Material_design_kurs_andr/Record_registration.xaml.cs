@@ -13,10 +13,10 @@ namespace Kurs_Andreev
     /// </summary>
     public partial class Record_registration : Page
     {
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Record_registration()
         {
             InitializeComponent();
-            var db = HospitalkursContext.GetContext();
             calendar.DisplayDateStart = DateTime.Now;
             calendar.DisplayDateEnd = DateTime.Now.AddDays(14);
             calendar.SelectedDate = DateTime.Now;
@@ -35,7 +35,6 @@ namespace Kurs_Andreev
 
         private void PresetTimePicker_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
         {
-            var db = HospitalkursContext.GetContext();
             DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);
             DateTime curday = calendar.SelectedDate.Value;
             String weekday = curday.DayOfWeek.ToString();
@@ -47,7 +46,6 @@ namespace Kurs_Andreev
 
         private void GetWorkerTicket_Click(object sender, RoutedEventArgs e)
         {
-            var db = HospitalkursContext.GetContext();
             DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);
             if (Workername.SelectedItem != null && PresetTimePicker.SelectedTime != null && OMC.Text != null)
             {

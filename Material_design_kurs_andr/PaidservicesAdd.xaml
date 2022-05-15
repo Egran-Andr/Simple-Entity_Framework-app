@@ -7,7 +7,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PaidservicesAdd">
+      Title="PaidservicesAdd" Loaded="Page_Loaded" PreviewKeyDown="Page_PreviewKeyDown">
 
     <Grid Background="White">
         <StackPanel>
@@ -30,10 +30,10 @@
                             <TranslateTransform X="-0.686"/>
                         </TransformGroup>
                     </Canvas.RenderTransform>
-                    <Button  x:Name="ServiseAdd" Content="Запись" Width="168" Height="50" Canvas.Left="315" FontSize="22"  Canvas.Top="94"  Cursor="Hand"/>
-                    <ComboBox x:Name="Servisecombo" Canvas.Left="6" Canvas.Top="33" Width="218"/>
-                    <ComboBox x:Name="Workercombo" Canvas.Left="288" Canvas.Top="34" Width="216"/>
-                    <ComboBox x:Name="PatientCombo" Canvas.Left="563" Canvas.Top="36" Width="222"/>
+                    <Button  x:Name="ServiseAdd" Content="Запись" Width="168" Height="50" Canvas.Left="315" FontSize="22"  Canvas.Top="94"  Cursor="Hand" Click="ServiseAdd_Click"/>
+                    <ComboBox x:Name="Servisecombo" Canvas.Left="6" Canvas.Top="33" Width="218" />
+                    <ComboBox x:Name="Workercombo" Canvas.Left="288" Canvas.Top="34" Width="216" />
+                    <ComboBox x:Name="PatientCombo" Canvas.Left="563" Canvas.Top="36" Width="222" />
                     <Label Content="Услуга:" Canvas.Left="7" Canvas.Top="3" FontSize="20"/>
                     <Label Name="WorkerLabel" Content="Работник:" Canvas.Left="280" Canvas.Top="2" Width="114" FontSize="20"/>
                     <Label Content="Пациент:" Canvas.Left="557" Canvas.Top="7" Width="101" FontSize="20"/>

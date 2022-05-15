@@ -13,10 +13,10 @@ namespace Kurs_Andreev
     /// </summary>
     public partial class Administration : Page
     {
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Administration()
         {
             InitializeComponent();
-            var db = HospitalkursContext.GetContext();
             AccountList.ItemsSource = db.LoginStorage.ToList();
         }
 
@@ -33,7 +33,6 @@ namespace Kurs_Andreev
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            var db = HospitalkursContext.GetContext();
             AccountList.EndInit();
             MessageBoxResult result = MessageBox.Show("Сохранить изменения", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
@@ -50,7 +49,6 @@ namespace Kurs_Andreev
 
         private void AccountList_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            var db = HospitalkursContext.GetContext();
             try
             {
                 if (e.Key == Key.Delete)

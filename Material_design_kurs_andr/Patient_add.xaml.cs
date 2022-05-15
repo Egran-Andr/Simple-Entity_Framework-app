@@ -24,6 +24,7 @@ namespace Material_design_kurs_andr
         public string Workerfio;
         public int Workerid;
         public string gender;
+        public HospitalkursContext db = HospitalkursContext.GetContext();
 
         public static string[] SplitFio(string fio)
         {
@@ -64,7 +65,6 @@ namespace Material_design_kurs_andr
             string surname = null;
             string secondname = null;
             string address, phone, OMC,SNILS;
-            var db = HospitalkursContext.GetContext();
             if (New_patient_Fio.Text != null && Patiend_Birth.SelectedDate != null && New_patient_Adress.Text != null && PhoneTextBox.Text != null && PatientOMC.Text != null && PatientSNILS.Text != null)
             {
                 string[] patientfio = SplitFio(New_patient_Fio.Text.ToString());
