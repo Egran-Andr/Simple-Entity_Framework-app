@@ -2,16 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Material_design_kurs_andr
 {
@@ -38,7 +31,7 @@ namespace Material_design_kurs_andr
             elipse2.Visibility = Visibility.Collapsed;
             rectangle2.Visibility = Visibility.Visible;
             Worker.ItemsSource = db.FioId.Select(n => n.Fio).ToList();
-            Worker1.ItemsSource=db.FioId.Select(n => n.Fio).ToList();
+            Worker1.ItemsSource = db.FioId.Select(n => n.Fio).ToList();
         }
 
         private void GotoEntry_Click(object sender, RoutedEventArgs e)
@@ -84,26 +77,27 @@ namespace Material_design_kurs_andr
                 if (Friday_check.IsChecked == true) weekday += 32;
                 if (Saturday_check.IsChecked == true) weekday += 64;
                 if (Sunday_check.IsChecked == true) weekday += 128;
-                if(weekday == 0)
+                if (weekday == 0)
                 {
                     MessageBox.Show("Необходимо выбрать день недели");
                     return;
                 }
-                try { 
-                if (calendarend.SelectedDate == null)
+                try
                 {
+                    if (calendarend.SelectedDate == null)
+                    {
                         newscedule.WorkerId = a[0].IdWorkers;
                         newscedule.Starttime = timebegin;
                         newscedule.Endtime = timeend;
                         newscedule.Weekday = weekday;
                         newscedule.WorkFrom = begindate;
-                    db.WorkScedule.Add(newscedule);
-                    db.SaveChanges();
-                    MessageBox.Show("Сотрудник приписан к отделению");
+                        db.WorkScedule.Add(newscedule);
+                        db.SaveChanges();
+                        MessageBox.Show("Сотрудник приписан к отделению");
                         newscedule = null;
                     }
-                else
-                {
+                    else
+                    {
                         var enddate = calendarend.SelectedDate.Value.Date;
                         newscedule.WorkerId = a[0].IdWorkers;
                         newscedule.Starttime = timebegin;
@@ -112,10 +106,10 @@ namespace Material_design_kurs_andr
                         newscedule.WorkFrom = begindate;
                         newscedule.WorkTo = enddate;
                         db.WorkScedule.Add(newscedule);
-                    db.SaveChanges();
-                    MessageBox.Show("Сотрудник приписан к отделению");
-                    newscedule = null;
-                }
+                        db.SaveChanges();
+                        MessageBox.Show("Сотрудник приписан к отделению");
+                        newscedule = null;
+                    }
                 }
                 catch (Microsoft.EntityFrameworkCore.DbUpdateException)
                 {
@@ -128,7 +122,7 @@ namespace Material_design_kurs_andr
                 }
             }
             else MessageBox.Show("Все необходимые поля должны быть заполненны!");
-           
+
         }
 
         private void Allworkers_Checkbox_Unchecked(object sender, RoutedEventArgs e)
@@ -157,8 +151,8 @@ namespace Material_design_kurs_andr
         private void Holidayadd_Click(object sender, RoutedEventArgs e)
         {
             List<FioId> b = db.FioId.Where(c => c.Fio == Worker1.Text.ToString()).ToList();
-            int idcounter = db.Holidays.OrderByDescending(p => p.Idholidays).First().Idholidays +1;
-            Holidays newholiday= new Holidays();
+            int idcounter = db.Holidays.OrderByDescending(p => p.Idholidays).First().Idholidays + 1;
+            Holidays newholiday = new Holidays();
             if (holidaybegin.SelectedDate != null && holidayend.SelectedDate != null)
             {
                 for (DateTime counter = holidaybegin.SelectedDate.Value; counter <= holidayend.SelectedDate.Value; counter = counter.AddDays(1))
@@ -186,11 +180,12 @@ namespace Material_design_kurs_andr
                 }
 
             }
-            else {
+            else
+            {
                 MessageBox.Show("Даты обязательны к заполнению");
-            } 
+            }
         }
 
-       
+
     }
 }

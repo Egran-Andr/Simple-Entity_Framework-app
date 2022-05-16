@@ -24,7 +24,7 @@ namespace Kurs_Andreev
         private const int IterationCount = 100000;
         private const int NumBytesRequested = 256 / 8;
         private const KeyDerivationPrf hMACSHA256 = KeyDerivationPrf.HMACSHA256;
-        int[] array = { 1, 2, 7, 8, 9,10 };
+        int[] array = { 1, 2, 7, 8, 9, 10 };
 
         public static string HashPassword(string password)
         {
@@ -52,22 +52,23 @@ namespace Kurs_Andreev
                 }
                 else
                 {
-                    List<LoginStorage> passwords = db.LoginStorage.Where(c => c.WorkerId == a[0].IdWorkers && c.Password ==HashPassword(pas)).ToList();
+                    List<LoginStorage> passwords = db.LoginStorage.Where(c => c.WorkerId == a[0].IdWorkers && c.Password == HashPassword(pas)).ToList();
                     if (passwords.Count == 0) MessageBox.Show("Проверьте правильность ввода!");
                     else if (passwords[0].AccountVerification == "-")
                     {
                         MessageBox.Show("Дождитесь потдверждение администратора!");
                     }
-                    else {
+                    else
+                    {
                         List<Workers> worker = db.Workers.Where(c => c.IdWorkers == a[0].IdWorkers).ToList();
                         bool result = array.Any(n => n == worker[0].WorkerPosition);
                         int id = worker[0].WorkerPosition;
                         string FIO = login;
-               
+
                         if (worker[0].WorkerPosition == 11) this.NavigationService.Navigate(new Uri("Administration.xaml", UriKind.Relative));
-                        else if (worker[0].WorkerPosition == 3) this.NavigationService.Navigate(new DoctorMenupage(id,FIO,a[0].IdWorkers)); 
-                        else if (result==true) this.NavigationService.Navigate(new DoctorMenupage(id, FIO, a[0].IdWorkers));
-                        MessageBox.Show("Добро пожаловать"+" "+a[0].Fio);
+                        else if (worker[0].WorkerPosition == 3) this.NavigationService.Navigate(new DoctorMenupage(id, FIO, a[0].IdWorkers));
+                        else if (result == true) this.NavigationService.Navigate(new DoctorMenupage(id, FIO, a[0].IdWorkers));
+                        MessageBox.Show("Добро пожаловать" + " " + a[0].Fio);
                     }
                 }
 

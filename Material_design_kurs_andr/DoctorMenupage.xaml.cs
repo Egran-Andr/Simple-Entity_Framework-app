@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Material_design_kurs_andr
 {
@@ -21,18 +12,18 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string Workerfio;
         public int Workerid;
-        public DoctorMenupage(int id, string fio,int workerid)
+        public DoctorMenupage(int id, string fio, int workerid)
         {
             InitializeComponent();
             Roleid = id;
             Workerfio = fio;
             Workerid = workerid;
-            if (Roleid !=3)
+            if (Roleid != 3)
             {
                 Worker_department.Visibility = Visibility.Collapsed;
                 Worker_add.Visibility = Visibility.Collapsed;
             }
-            
+
         }
 
         private void BackToEntry_Click(object sender, RoutedEventArgs e)

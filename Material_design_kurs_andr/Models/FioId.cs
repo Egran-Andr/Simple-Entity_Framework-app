@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Material_design_kurs_andr.Models
+﻿namespace Material_design_kurs_andr.Models
 {
     public partial class FioId
     {

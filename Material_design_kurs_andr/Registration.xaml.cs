@@ -52,18 +52,21 @@ namespace Kurs_Andreev
                     string login = Login.Text.ToString();
                     string pas = Password.Password.ToString();
                     List<FioId> a = db.FioId.Where(c => c.Fio == login).ToList();
-                    if(a.Count==0) {
+                    if (a.Count == 0)
+                    {
                         MessageBox.Show("Данный человек не работает в данной больнице!");
                     }
-                    else{
-                        LoginStorage user = new LoginStorage() {WorkerId=a[0].IdWorkers,Password=HashPassword(pas),AccountVerification="-"};
-                        try { 
-                        db.LoginStorage.AddRange(user);
-                        db.SaveChanges();
-                        MessageBox.Show("Аккаунт был создан. Дождитесь потдверждение администратора");
-                        this.NavigationService.Navigate(new Uri("Entry_frame.xaml", UriKind.Relative));//Переход на страницу входа
+                    else
+                    {
+                        LoginStorage user = new LoginStorage() { WorkerId = a[0].IdWorkers, Password = HashPassword(pas), AccountVerification = "-" };
+                        try
+                        {
+                            db.LoginStorage.AddRange(user);
+                            db.SaveChanges();
+                            MessageBox.Show("Аккаунт был создан. Дождитесь потдверждение администратора");
+                            this.NavigationService.Navigate(new Uri("Entry_frame.xaml", UriKind.Relative));//Переход на страницу входа
                         }
-                        catch(Microsoft.EntityFrameworkCore.DbUpdateException)
+                        catch (Microsoft.EntityFrameworkCore.DbUpdateException)
                         {
                             MessageBox.Show("Данный сотрудник уже зарегестрирован в базе");
                         }

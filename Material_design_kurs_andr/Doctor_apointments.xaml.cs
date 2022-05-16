@@ -2,17 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Material_design_kurs_andr
 {
@@ -31,7 +24,7 @@ namespace Material_design_kurs_andr
             WorkerFio = fio;
             Workerid = workerid;
             Roleid = id;
-            RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord==workerid).ToList();
+            RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord == workerid).ToList();
             RecordList.IsReadOnly = true;
         }
 
@@ -46,7 +39,7 @@ namespace Material_design_kurs_andr
         private void GetWorkerTicket_Click(object sender, RoutedEventArgs e)
         {
             DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);//Получение даты из даты календаря и Времени
-            if ( PresetTimePicker.SelectedTime != null && OMC.Text != null)
+            if (PresetTimePicker.SelectedTime != null && OMC.Text != null)
             {
                 if (StringIsValid(OMC.Text) == true)
                 {
@@ -94,36 +87,36 @@ namespace Material_design_kurs_andr
 
         private void RecordList_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-                try
+            try
+            {
+                if (e.Key == Key.Delete)//Delete
                 {
-                    if (e.Key == Key.Delete)//Delete
+                    MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
                     {
-                        MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            List<Object> a = RecordList.SelectedItems.Cast<Object>().ToList();
-                            a.ForEach(n => db.Remove(n));
-                            db.SaveChanges();
-                            RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord == Workerid).ToList();
-                        }
-                        else
-                        {
+                        List<Object> a = RecordList.SelectedItems.Cast<Object>().ToList();
+                        a.ForEach(n => db.Remove(n));
+                        db.SaveChanges();
+                        RecordList.ItemsSource = db.Records.Where(c => c.WorkerRecord == Workerid).ToList();
+                    }
+                    else
+                    {
                         e.Handled = true;
                         return;
-                        }
                     }
                 }
-                catch (System.InvalidOperationException)
-                {
-                    MessageBox.Show("Ошибка. Изменения не были сохранены");
-                    return;
-                }
-
             }
+            catch (System.InvalidOperationException)
+            {
+                MessageBox.Show("Ошибка. Изменения не были сохранены");
+                return;
+            }
+
+        }
 
         private void ToMenuPage_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new DoctorMenupage(Roleid, WorkerFio,Workerid));//Переход к меню
+            this.NavigationService.Navigate(new DoctorMenupage(Roleid, WorkerFio, Workerid));//Переход к меню
         }
     }
-    }
+}

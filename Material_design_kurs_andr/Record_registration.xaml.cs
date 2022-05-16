@@ -25,7 +25,7 @@ namespace Kurs_Andreev
         }
         public static bool StringIsValid(string str)
         {
-            return !Regex.IsMatch(str, @"^[0-9]*$") || str.Length<16;
+            return !Regex.IsMatch(str, @"^[0-9]*$") || str.Length < 16;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace Kurs_Andreev
             DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);
             if (Workername.SelectedItem != null && PresetTimePicker.SelectedTime != null && OMC.Text != null)
             {
-                if (StringIsValid(OMC.Text)==true)
+                if (StringIsValid(OMC.Text) == true)
                 {
                     MessageBox.Show("Неверный формат полиса! Проверьте поле ввода");
                     return;

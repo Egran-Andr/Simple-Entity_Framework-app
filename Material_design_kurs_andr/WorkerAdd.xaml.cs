@@ -19,7 +19,7 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string Workerfio;
         public int Workerid;
-        public string gender;
+        public string gender= "М";
         public HospitalkursContext db = HospitalkursContext.GetContext();
         public static string[] SplitFio(string fio)
         {
@@ -60,7 +60,7 @@ namespace Material_design_kurs_andr
                 string spec = Spesiality.SelectedItem.ToString();
                 DateTime dateTime = WorkerBirth.SelectedDate.Value;
                 int workexperience = Convert.ToInt32(txtNum.Text);
-                List<Positions> a = db.Positions.Where(c => c.PositionName ==spec).ToList();
+                List<Positions> a = db.Positions.Where(c => c.PositionName == spec).ToList();
                 if (StringIsValid(PhoneTextBox.Text) == false || StringIsValid(WorkerPassport.Text) == false)
                 {
                     address = New_worker_Adress.Text;
@@ -94,7 +94,7 @@ namespace Material_design_kurs_andr
                     return;
                 }
 
-                Workers newworker = new Workers() { WorkerName=name,WorkerSurname=surname,WorkerSecondname=secondname,WorkerAge=dateTime,WorkerGender=gender,WorkerAdress= address,WorkerPhone=phone,WorkerPassport=passport,WorkerPosition=a[0].IdPositions,WorkExperience=workexperience};
+                Workers newworker = new Workers() { WorkerName = name, WorkerSurname = surname, WorkerSecondname = secondname, WorkerAge = dateTime, WorkerGender = gender, WorkerAdress = address, WorkerPhone = phone, WorkerPassport = passport, WorkerPosition = a[0].IdPositions, WorkExperience = workexperience };
                 try
                 {
                     db.Workers.AddRange(newworker);

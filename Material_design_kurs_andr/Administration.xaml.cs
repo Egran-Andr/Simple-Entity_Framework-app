@@ -28,7 +28,7 @@ namespace Kurs_Andreev
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             AccountList.Columns[3].Visibility = Visibility.Hidden;
-            AccountList.Columns[1].IsReadOnly=true;
+            AccountList.Columns[1].IsReadOnly = true;
         }
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)//Кнопка сохранить
@@ -67,11 +67,12 @@ namespace Kurs_Andreev
                     }
                 }
             }
-            catch (System.InvalidOperationException){
+            catch (System.InvalidOperationException)
+            {
                 MessageBox.Show("Ошибка. Изменения не были сохранены");
                 return;
             }
-            
+
         }
     }
 }

@@ -1,17 +1,8 @@
 ﻿using Material_design_kurs_andr.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Material_design_kurs_andr
 {
@@ -23,7 +14,7 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string Workerfio;
         public int Workerid;
-        public string gender;
+        public string gender= "М";
         public HospitalkursContext db = HospitalkursContext.GetContext();
 
         public static string[] SplitFio(string fio)
@@ -64,7 +55,7 @@ namespace Material_design_kurs_andr
             string name = null;
             string surname = null;
             string secondname = null;
-            string address, phone, OMC,SNILS;
+            string address, phone, OMC, SNILS;
             if (New_patient_Fio.Text != null && Patiend_Birth.SelectedDate != null && New_patient_Adress.Text != null && PhoneTextBox.Text != null && PatientOMC.Text != null && PatientSNILS.Text != null)
             {
                 string[] patientfio = SplitFio(New_patient_Fio.Text.ToString());
@@ -105,16 +96,16 @@ namespace Material_design_kurs_andr
 
                 if (String.IsNullOrWhiteSpace(Patient_dmc_org.Text) && String.IsNullOrWhiteSpace(Patient_dmc_num.Text))
                 {
-                    PatientInfo newpatient = new PatientInfo() { PatientName=name,PatientSurname=surname,PatientSecondname=secondname,PatientAge=dateTime,PatientGender=gender,PatientAdress=address,PatientPhone=phone,OmcNumber=OMC,SnilsNumber=SNILS};
-                    
-                        db.PatientInfo.AddRange(newpatient);
-                        db.SaveChanges();
-                        MessageBox.Show("Работник записан");
-                    
+                    PatientInfo newpatient = new PatientInfo() { PatientName = name, PatientSurname = surname, PatientSecondname = secondname, PatientAge = dateTime, PatientGender = gender, PatientAdress = address, PatientPhone = phone, OmcNumber = OMC, SnilsNumber = SNILS };
+
+                    db.PatientInfo.AddRange(newpatient);
+                    db.SaveChanges();
+                    MessageBox.Show("Работник записан");
+
                 }
-                else if(Patient_dmc_org.Text.Length>0 && Patient_dmc_num.Text.Length>0)
+                else if (Patient_dmc_org.Text.Length > 0 && Patient_dmc_num.Text.Length > 0)
                 {
-                    PatientInfo newpatient = new PatientInfo() { PatientName = name, PatientSurname = surname, PatientSecondname = secondname, PatientAge = dateTime, PatientGender = gender, PatientAdress = address, PatientPhone = phone, OmcNumber = OMC, SnilsNumber = SNILS,DmcOrganisation= Patient_dmc_org.Text,DmcNumber = Patient_dmc_num.Text };
+                    PatientInfo newpatient = new PatientInfo() { PatientName = name, PatientSurname = surname, PatientSecondname = secondname, PatientAge = dateTime, PatientGender = gender, PatientAdress = address, PatientPhone = phone, OmcNumber = OMC, SnilsNumber = SNILS, DmcOrganisation = Patient_dmc_org.Text, DmcNumber = Patient_dmc_num.Text };
                     try
                     {
                         db.PatientInfo.AddRange(newpatient);
@@ -132,7 +123,7 @@ namespace Material_design_kurs_andr
                     Patient_dmc_num.Text = null;
                     Patient_dmc_org.Text = null;
                 }
-                
+
             }
             else MessageBox.Show("Все поля обязательны к заполнению");
         }
