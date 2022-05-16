@@ -13,11 +13,11 @@ namespace Kurs_Andreev
     /// </summary>
     public partial class Administration : Page
     {
-        public HospitalkursContext db = HospitalkursContext.GetContext();
+        public HospitalkursContext db = HospitalkursContext.GetContext();//подключение БД
         public Administration()
         {
             InitializeComponent();
-            AccountList.ItemsSource = db.LoginStorage.ToList();
+            AccountList.ItemsSource = db.LoginStorage.ToList();//Вывод списка аккаунтов
         }
 
         private void GotoEntry_Click(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace Kurs_Andreev
             AccountList.Columns[1].IsReadOnly=true;
         }
 
-        private void SaveChanges_Click(object sender, RoutedEventArgs e)
+        private void SaveChanges_Click(object sender, RoutedEventArgs e)//Кнопка сохранить
         {
             AccountList.EndInit();
             MessageBoxResult result = MessageBox.Show("Сохранить изменения", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -47,21 +47,22 @@ namespace Kurs_Andreev
 
         }
 
-        private void AccountList_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void AccountList_PreviewKeyDown(object sender, KeyEventArgs e)//Удаление записи 
         {
             try
             {
-                if (e.Key == Key.Delete)
+                if (e.Key == Key.Delete)//при нажатии кнопки Delete
                 {
                     MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
                         List<Object> a = AccountList.SelectedItems.Cast<Object>().ToList();
-                        a.ForEach(n => db.Remove(n));
-                        db.SaveChanges();
+                        a.ForEach(n => db.Remove(n));//удаление обьекта из базы
+                        db.SaveChanges();//сохранение изменений
                     }
                     else
                     {
+                        e.Handled = true;
                         return;
                     }
                 }

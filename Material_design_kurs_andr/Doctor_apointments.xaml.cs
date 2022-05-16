@@ -45,7 +45,7 @@ namespace Material_design_kurs_andr
 
         private void GetWorkerTicket_Click(object sender, RoutedEventArgs e)
         {
-            DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);
+            DateTime MyDateTime = ((DateTime)calendar.SelectedDate).Date.Add(((DateTime)PresetTimePicker.SelectedTime).TimeOfDay);//Получение даты из даты календаря и Времени
             if ( PresetTimePicker.SelectedTime != null && OMC.Text != null)
             {
                 if (StringIsValid(OMC.Text) == true)
@@ -87,7 +87,7 @@ namespace Material_design_kurs_andr
             }
         }
 
-        public static bool StringIsValid(string str)
+        public static bool StringIsValid(string str)//Выражение для полиса ОМС
         {
             return !Regex.IsMatch(str, @"^[0-9]*$") || str.Length < 16;
         }
@@ -96,7 +96,7 @@ namespace Material_design_kurs_andr
         {
                 try
                 {
-                    if (e.Key == Key.Delete)
+                    if (e.Key == Key.Delete)//Delete
                     {
                         MessageBoxResult result = MessageBox.Show("Удалить выделенные элементы?", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (result == MessageBoxResult.Yes)
@@ -108,7 +108,8 @@ namespace Material_design_kurs_andr
                         }
                         else
                         {
-                            return;
+                        e.Handled = true;
+                        return;
                         }
                     }
                 }
@@ -122,7 +123,7 @@ namespace Material_design_kurs_andr
 
         private void ToMenuPage_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new DoctorMenupage(Roleid, WorkerFio,Workerid));
+            this.NavigationService.Navigate(new DoctorMenupage(Roleid, WorkerFio,Workerid));//Переход к меню
         }
     }
     }

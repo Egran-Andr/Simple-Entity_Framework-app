@@ -66,6 +66,7 @@ namespace Material_design_kurs_andr
                 }
                 else
                 {
+                    e.Handled = true;
                     return;
                 }
             }
@@ -82,7 +83,6 @@ namespace Material_design_kurs_andr
             MessageBoxResult result = MessageBox.Show("Сохранить изменения", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                List<Object> a = PatientList.Items.Cast<Object>().ToList();
                 db.SaveChanges();
             }
             else
@@ -95,11 +95,6 @@ namespace Material_design_kurs_andr
         private void ToPatientAdd_Click(object sender, RoutedEventArgs e)//Добавление пациента
         {
             this.NavigationService.Navigate(new Patient_add(Roleid, Workerfio, Workerid));
-        }
-
-        private void ToPatientVizit_Click(object sender, RoutedEventArgs e)//Переход к списку посещений
-        {
-
         }
     }
 }

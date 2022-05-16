@@ -16,7 +16,7 @@ namespace Material_design_kurs_andr
         public int Roleid;
         public string Workerfio;
         public int Workerid;
-        public HospitalkursContext db= HospitalkursContext.GetContext();
+        public HospitalkursContext db = HospitalkursContext.GetContext();
         public Worker_department(int id, string fio, int workerid)
         {
             Roleid = id;
@@ -82,7 +82,7 @@ namespace Material_design_kurs_andr
                 }
                 else
                 {
-                    WorkersDepartment newworker = new WorkersDepartment() { WorkerId = a[0].IdWorkers,DepartmentId = b[0].Departmentid};
+                    WorkersDepartment newworker = new WorkersDepartment() { WorkerId = a[0].IdWorkers, DepartmentId = b[0].Departmentid };
                     try
                     {
                         db.Add(newworker);
@@ -111,6 +111,32 @@ namespace Material_design_kurs_andr
         private void Date_workers_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Worker_datework(Roleid, Workerfio, Workerid));
+        }
+
+        private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                MessageBoxResult result = MessageBox.Show("Удалить", "Потдверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    List<Object> a = DepartmentList.SelectedItems.Cast<Object>().ToList();
+
+                    a.ForEach(n => db.Remove(n));
+                    db.SaveChanges();
+                    string department = Department.SelectedItem.ToString();
+                    List<HospitalDepatment> departmentlist = db.HospitalDepatment.Where(c => c.DepartmentName == department).ToList();
+                    int departmentid = departmentlist[0].Departmentid;
+                    DepartmentList.ItemsSource = db.WorkersDepartment.Where(n => n.DepartmentId == departmentid).ToList().AsParallel();
+                    DepartmentList.Columns[2].Visibility = Visibility.Hidden;
+                    DepartmentList.Columns[3].Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
         }
     }
 }

@@ -23,11 +23,11 @@
                     </TransformGroup>
                 </UniformGrid.RenderTransform>
                 <Label Content="Логин:"   FontSize="30"/>
-                <TextBox x:Name="Login" DockPanel.Dock="Left" TextWrapping="Wrap"  FontSize="20" Margin="0,0,0,-36" Cursor="Arrow"/>
+                <TextBox x:Name="Login" DockPanel.Dock="Left" TextWrapping="Wrap"  FontSize="20" Margin="0,0,0,-36" Cursor="Arrow" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
             </UniformGrid>
             <UniformGrid Height="140" Width="605">
                 <Label Content="Пароль:" FontSize="30"/>
-                <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  />
+                <PasswordBox x:Name="Password" MinHeight="30" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"  />
             </UniformGrid>
             <Canvas Height="68" Width="799">
                 <Button Name="entry" Content="Вход" Width="168" Height="50" Canvas.Left="316" FontSize="22" Click="entry_Click"/>

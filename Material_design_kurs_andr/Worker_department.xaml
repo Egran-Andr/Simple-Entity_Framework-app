@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Material_design_kurs_andr"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Worker_department" Loaded="Page_Loaded">
+      Title="Worker_department" Loaded="Page_Loaded" PreviewKeyDown="Page_PreviewKeyDown">
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
         <DockPanel LastChildFill="True">
             <Label Content="Cписок сотрудников" FontSize="25" Width="675" DockPanel.Dock="Left" />

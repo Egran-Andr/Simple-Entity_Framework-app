@@ -29,7 +29,7 @@
                 </Button>
             </DockPanel>
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <DataGrid x:Name="PatientList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewKeyDown="PatientList_PreviewKeyDown" MaxWidth="790" MaxHeight="350" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+                <DataGrid x:Name="PatientList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewKeyDown="PatientList_PreviewKeyDown" MaxWidth="790" MaxHeight="350" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Visible" CanUserAddRows="False"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -24,15 +24,15 @@
                         </TransformGroup>
                     </UniformGrid.RenderTransform>
                     <Label Content="Логин:"   FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <TextBox x:Name="Login" DockPanel.Dock="Left" TextWrapping="Wrap"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand"/>
+                    <TextBox x:Name="Login" DockPanel.Dock="Left" TextWrapping="Wrap"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand" VerticalContentAlignment="Center"/>
                 </UniformGrid>
                 <UniformGrid Height="99" Width="598">
                     <Label Content="Пароль:" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand" />
+                    <PasswordBox x:Name="Password" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand" VerticalContentAlignment="Center" />
                 </UniformGrid>
                 <UniformGrid Height="87" Width="626">
                     <Label Content="Повторите пароль:" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <PasswordBox x:Name="PasswordRepeat" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="Hand" />
+                    <PasswordBox x:Name="PasswordRepeat" MinHeight="30" FontSize="20"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand" VerticalContentAlignment="Center" />
                 </UniformGrid>
                 <Canvas  Height="68" Width="799" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Button  x:Name="RegistrationAcsess" Content="Регистрация" Width="168" Height="50" Canvas.Left="316" FontSize="22"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="RegistrationAcsess_Click"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Material_design_kurs_andr"
         mc:Ignorable="d"
-        Title="Приложение больница" Height="473" Width="800" 
+        Title="Приложение больница" Height="473" Width="800" Icon="icon.ico" 
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"

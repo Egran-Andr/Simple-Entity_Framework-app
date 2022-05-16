@@ -29,10 +29,10 @@
                     <Button x:Name="Patient_visit" Content="Список пациентов" FontSize="20" Height="46" Click="Patient_visit_Click" Cursor="Hand"></Button>
                 </UniformGrid>
                 <UniformGrid>
-                    <Button x:Name="Worker_department" Content="Список сотрудников" FontSize="20" Height="46" Background="PaleTurquoise" Cursor="Hand" Click="Worker_department_Click"></Button>
+                    <Button x:Name="Worker_department" Content="Список сотрудников" FontSize="20" Height="46" Background="#FFA456B2" Cursor="Hand" Click="Worker_department_Click"></Button>
                 </UniformGrid>
                 <UniformGrid>
-                    <Button x:Name="Worker_add" Content="Добавить сотрудника" FontSize="20" Height="46" Background="PaleTurquoise" Cursor="Hand" Click="Worker_add_Click"></Button>
+                    <Button x:Name="Worker_add" Content="Добавить сотрудника" FontSize="20" Height="46" Background="#FFA456B2" Cursor="Hand" Click="Worker_add_Click"></Button>
                 </UniformGrid>
             </StackPanel>
         </StackPanel>

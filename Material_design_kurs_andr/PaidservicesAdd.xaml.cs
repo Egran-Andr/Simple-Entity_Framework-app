@@ -154,6 +154,7 @@ namespace Material_design_kurs_andr
                 }
                 else
                 {
+                    e.Handled = true;
                     return;
                 }
             }
