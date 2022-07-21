@@ -42,8 +42,13 @@ namespace Material_design_kurs_andr
                 List<HospitalDepatment> departmentlist = db.HospitalDepatment.Where(c => c.DepartmentName == department).ToList();
                 int departmentid = departmentlist[0].Departmentid;
                 DepartmentList.ItemsSource = db.WorkersDepartment.Where(n => n.DepartmentId == departmentid).ToList().AsParallel();
-                DepartmentList.Columns[2].Visibility = Visibility.Hidden;
-                DepartmentList.Columns[3].Visibility = Visibility.Hidden;
+                if (DepartmentList.Items.IsEmpty==false)
+                {
+                    DepartmentList.Columns[2].Visibility = Visibility.Hidden;
+                    DepartmentList.Columns[3].Visibility = Visibility.Hidden;
+
+                }
+               
             }
         }
 

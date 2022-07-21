@@ -52,7 +52,7 @@ namespace Material_design_kurs_andr.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;database=hospital-kurs;user=root;password=NtcnGfhjkm1234");
+                optionsBuilder.UseMySql("server=localhost;database=hospital-kurs;user=root;password=12345");
             }
         }
 
